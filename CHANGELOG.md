@@ -6,6 +6,8 @@
 
     - Use `vim.ui.input()` when creating new session with `<Leader>sn`.
 
+    - Add `<leader>sR` to restart Neovim while preserving current session. Uses `MiniSessions.restart()`, requires Neovim>=0.12.
+
 ## 2026-04-02
 
 - Add a note in `nvim-0.11` config about Neovim 0.11 not being the latest stable release.
