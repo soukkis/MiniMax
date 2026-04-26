@@ -8,6 +8,26 @@
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
+    "gruvbox-material": {
+      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
+    "markdown.nvim": {
+      "rev": "093be911d90de03877f3009de36081c1a6242d51",
+      "src": "https://github.com/tadmccorkle/markdown.nvim"
+    },
+    "mason.nvim": {
+      "rev": "12ddd182d9efbdc848b540f16484a583d52da0fb",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mdnotes.nvim": {
+      "rev": "bc75554cbb517b01d535923300073a9dae7579a5",
+      "src": "https://github.com/ymic9963/mdnotes.nvim"
+    },
     "mini.nvim": {
       "rev": "418ef4930ddabe80f449c6f1323f8b6abb172d1c",
       "src": "https://github.com/nvim-mini/mini.nvim"
@@ -23,6 +43,10 @@
     "nvim-treesitter-textobjects": {
       "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "render-markdown.nvim": {
+      "rev": "d67113f11384c0dad96fced2f7b91f1fc811e97f",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     }
   }
 }
