@@ -16,8 +16,14 @@ end
 
 -- Paste linewise before/after current line
 -- Usage: `yiw` to yank a word and `]p` to put it on the next line.
-nmap('[p', '<Cmd>exe "iput! " . v:register<CR>', 'Paste Above')
+nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
 nmap(']p', '<Cmd>exe "iput "  . v:register<CR>', 'Paste Below')
+nmap('ä', '<Cmd>bn<CR>', 'Move to Next Buffer')
+nmap('Ä', '<Cmd>bp<CR>', 'Move to Previous Buffer')
+nmap('ö', '}', 'Move to Next Paragraph')
+nmap('Ö', '{', 'Move to Previous Paragraph')
+
+nmap('<C-s>', '<Cmd>w<CR>', 'Write buffer')
 
 -- Many general mappings are created by 'mini.basics'. See 'plugin/30_mini.lua'
 
@@ -55,11 +61,15 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>f', desc = '+Find' },
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
   { mode = 'n', keys = '<Leader>l', desc = '+Language' },
-  { mode = 'n', keys = '<Leader>m', desc = '+Map' },
+  { mode = 'n', keys = '<Leader>m', desc = '+Map & Markdown' },
+  { mode = 'n', keys = '<Leader>ml', desc = '+MD Links' },
+  { mode = 'n', keys = '<Leader>mf', desc = '+MD Formatting' },
+  { mode = 'n', keys = '<Leader>mh', desc = '+MD Heading Nav' },
   { mode = 'n', keys = '<Leader>o', desc = '+Other' },
   { mode = 'n', keys = '<Leader>s', desc = '+Session' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
   { mode = 'n', keys = '<Leader>v', desc = '+Visits' },
+  { mode = 'n', keys = '<Leader>w', desc = '+Windows' },
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'x', keys = '<Leader>l', desc = '+Language' },
@@ -86,6 +96,8 @@ local new_scratch_buffer = function()
 end
 
 nmap_leader('ba', '<Cmd>b#<CR>',                                 'Alternate')
+nmap_leader('bn', '<Cmd>bn<CR>',                                 'Next')
+nmap_leader('bb', '<Cmd>bp<CR>',                                 'Previous')
 nmap_leader('bd', '<Cmd>lua MiniBufremove.delete()<CR>',         'Delete')
 nmap_leader('bD', '<Cmd>lua MiniBufremove.delete(0, true)<CR>',  'Delete!')
 nmap_leader('bs', new_scratch_buffer,                            'Scratch')
@@ -206,6 +218,18 @@ nmap_leader('mr', '<Cmd>lua MiniMap.refresh()<CR>',      'Refresh')
 nmap_leader('ms', '<Cmd>lua MiniMap.toggle_side()<CR>',  'Side (toggle)')
 nmap_leader('mt', '<Cmd>lua MiniMap.toggle()<CR>',       'Toggle')
 
+-- Markdown leader mappings using mdnotes.nvim commands
+nmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
+nmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
+nmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
+
+nmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
+nmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
+nmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
+
+nmap_leader('mhn', '<Cmd>Mdn heading next<CR>',  'Move to Next Heading')
+nmap_leader('mhN', '<Cmd>Mdn heading previous<CR>',  'Move to Preivous Heading')
+
 -- o is for 'Other'. Common usage:
 -- - `<Leader>oz` - toggle between "zoomed" and regular view of current buffer
 nmap_leader('or', '<Cmd>lua MiniMisc.resize_window()<CR>', 'Resize to default width')
@@ -246,4 +270,12 @@ nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>',    'Add "core" la
 nmap_leader('vV', '<Cmd>lua MiniVisits.remove_label("core")<CR>', 'Remove "core" label')
 nmap_leader('vl', '<Cmd>lua MiniVisits.add_label()<CR>',          'Add label')
 nmap_leader('vL', '<Cmd>lua MiniVisits.remove_label()<CR>',       'Remove label')
+
+-- w is for Windows, splitting, navigating between and closing windows.
+nmap_leader('wc', '<Cmd>close<CR>',       'Close')
+nmap_leader('ws', '<Cmd>split<CR>',       'Split horizontally')
+nmap_leader('wv', '<Cmd>vsplit<CR>',       'Split vertically')
+nmap_leader('ww', '<C-w>w',               'Focus next')
+nmap_leader('wW', '<C-w>W',               'Focus previous')
+
 -- stylua: ignore end

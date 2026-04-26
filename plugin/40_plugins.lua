@@ -134,6 +134,22 @@ later(function()
   })
 end)
 
+later(function() add({'https://github.com/MeanderingProgrammer/render-markdown.nvim',})
+
+  require('render-markdown').setup({
+    heading = {
+              icons = { '󰅂 ', '󰅂󰅂 ', '󰅂󰅂󰅂 ', '󰄾󰄾 ', '󰬃 ', '󰬃󰫶 ' },
+},
+  })
+end)
+
+later(function()
+add({
+  'https://github.com/ymic9963/mdnotes.nvim',
+})
+require('mdnotes').setup()
+end)
+
 -- Snippets ===================================================================
 
 -- Although 'mini.snippets' provides functionality to manage snippet files, it
@@ -155,22 +171,23 @@ later(function() add({ 'https://github.com/rafamadriz/friendly-snippets' }) end)
 -- If you need them to work elsewhere, consider using other package managers.
 --
 -- You can use it like so:
--- now_if_args(function()
---   add({ 'https://github.com/mason-org/mason.nvim' })
---   require('mason').setup()
--- end)
+now_if_args(function()
+  add({ 'https://github.com/mason-org/mason.nvim' })
+  require('mason').setup()
+end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
 -- have full support of its highlight groups. Use if you don't like 'miniwinter'
 -- enabled in 'plugin/30_mini.lua' or other suggested 'mini.hues' based ones.
--- Config.now(function()
+Config.now(function()
 --  -- Install only those that you need
---  add({
+ add({
 --    'https://github.com/sainnhe/everforest',
 --    'https://github.com/Shatur/neovim-ayu',
 --    'https://github.com/ellisonleao/gruvbox.nvim',
---  })
+      'https://github.com/sainnhe/gruvbox-material',
+ })
 --
 --   -- Enable only one
---   vim.cmd('color everforest')
--- end)
+  vim.cmd('color gruvbox-material')
+end)
