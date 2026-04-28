@@ -139,7 +139,10 @@ later(function() add({'https://github.com/MeanderingProgrammer/render-markdown.n
   require('render-markdown').setup({
     heading = {
               icons = { '󰅂 ', '󰅂󰅂 ', '󰅂󰅂󰅂 ', '󰄾󰄾 ', '󰬃 ', '󰬃󰫶 ' },
-},
+              },
+    -- Render markdown syntax in all modes, and disable conceal across all modes as well.
+    render_modes = true,
+    anti_conceal = { enabled = true },
   })
 end)
 

@@ -73,6 +73,8 @@ Config.leader_group_clues = {
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'x', keys = '<Leader>l', desc = '+Language' },
+  { mode = 'x', keys = '<Leader>ml', desc = '+MD Links' },
+  { mode = 'x', keys = '<Leader>mf', desc = '+MD Formatting' },
 }
 
 -- Helpers for a more concise `<Leader>` mappings.
@@ -226,6 +228,14 @@ nmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
 nmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
 nmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
 nmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
+
+xmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
+xmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
+xmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
+
+xmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
+xmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
+xmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
 
 nmap_leader('mhn', '<Cmd>Mdn heading next<CR>',  'Move to Next Heading')
 nmap_leader('mhN', '<Cmd>Mdn heading previous<CR>',  'Move to Preivous Heading')
