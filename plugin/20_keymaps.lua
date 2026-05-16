@@ -61,10 +61,10 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>f', desc = '+Find' },
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
   { mode = 'n', keys = '<Leader>l', desc = '+Language' },
-  { mode = 'n', keys = '<Leader>m', desc = '+Map & Markdown' },
-  { mode = 'n', keys = '<Leader>ml', desc = '+MD Links' },
-  { mode = 'n', keys = '<Leader>mf', desc = '+MD Formatting' },
-  { mode = 'n', keys = '<Leader>mh', desc = '+MD Heading Nav' },
+  { mode = 'n', keys = '<Leader>m', desc = '+Map' },
+  -- { mode = 'n', keys = '<Leader>ml', desc = '+MD Links' },
+  -- { mode = 'n', keys = '<Leader>mf', desc = '+MD Formatting' },
+  -- { mode = 'n', keys = '<Leader>mh', desc = '+MD Heading Nav' },
   { mode = 'n', keys = '<Leader>o', desc = '+Other' },
   { mode = 'n', keys = '<Leader>s', desc = '+Session' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
@@ -73,8 +73,8 @@ Config.leader_group_clues = {
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'x', keys = '<Leader>l', desc = '+Language' },
-  { mode = 'x', keys = '<Leader>ml', desc = '+MD Links' },
-  { mode = 'x', keys = '<Leader>mf', desc = '+MD Formatting' },
+  -- { mode = 'x', keys = '<Leader>ml', desc = '+MD Links' },
+  -- { mode = 'x', keys = '<Leader>mf', desc = '+MD Formatting' },
 }
 
 -- Helpers for a more concise `<Leader>` mappings.
@@ -221,27 +221,28 @@ nmap_leader('ms', '<Cmd>lua MiniMap.toggle_side()<CR>',  'Side (toggle)')
 nmap_leader('mt', '<Cmd>lua MiniMap.toggle()<CR>',       'Toggle')
 
 -- Markdown leader mappings using mdnotes.nvim commands
-nmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
-nmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
-nmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
-
-nmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
-nmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
-nmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
-
-xmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
-xmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
-xmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
-
-xmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
-xmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
-xmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
-
-nmap_leader('mhn', '<Cmd>Mdn heading next<CR>',  'Move to Next Heading')
-nmap_leader('mhN', '<Cmd>Mdn heading previous<CR>',  'Move to Preivous Heading')
+-- nmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
+-- nmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
+-- nmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
+--
+-- nmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
+-- nmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
+-- nmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
+--
+-- xmap_leader('mlf', '<Cmd>Mdn wikilink follow<CR>',           'Wikilink follow')
+-- xmap_leader('mlk', '<Cmd>Mdn wikilink create<CR>',           'Wikilink create')
+-- xmap_leader('mld', '<Cmd>Mdn wikilink delete<CR>',           'Wikilink delete')
+--
+-- xmap_leader('mfs', '<Cmd>Mdn formatting strong_toggle<CR>',  'Format bold')
+-- xmap_leader('mfi', '<Cmd>Mdn formatting emphasis_toggle<CR>',  'Format italic')
+-- xmap_leader('mfu', '<Cmd>Mdn formatting unformat_lines<CR>',  'Unformat lines')
+--
+-- nmap_leader('mhn', '<Cmd>Mdn heading next<CR>',  'Move to Next Heading')
+-- nmap_leader('mhN', '<Cmd>Mdn heading previous<CR>',  'Move to Preivous Heading')
 
 -- o is for 'Other'. Common usage:
 -- - `<Leader>oz` - toggle between "zoomed" and regular view of current buffer
+nmap_leader('oo', '<Cmd>Obsidian<CR>',                     'Obsidian')
 nmap_leader('or', '<Cmd>lua MiniMisc.resize_window()<CR>', 'Resize to default width')
 nmap_leader('ot', '<Cmd>lua MiniTrailspace.trim()<CR>',    'Trim trailspace')
 nmap_leader('oz', '<Cmd>lua MiniMisc.zoom()<CR>',          'Zoom toggle')

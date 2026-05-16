@@ -146,11 +146,45 @@ later(function() add({'https://github.com/MeanderingProgrammer/render-markdown.n
   })
 end)
 
-later(function()
-add({
-  'https://github.com/ymic9963/mdnotes.nvim',
-})
-require('mdnotes').setup()
+-- MD Notes is otherwise a good mark down plugin, but the wikilink follow function only works within the same subdirectory. I'll try obsidian.nvim next.
+-- later(function()
+-- add({
+--   'https://github.com/ymic9963/mdnotes.nvim',
+-- })
+-- require('mdnotes').setup()
+-- end)
+
+later(function() add({
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/obsidian-nvim/obsidian.nvim',})
+
+  require('obsidian').setup({
+  legacy_commands = false, -- this will be removed in 4.0.0
+  workspaces = {
+    {
+      name = "welehola",
+      path = "~/Documents/GitHub/Welehola_Wiki",
+    },
+    {
+      name = "personal",
+      path = "~/Documents/GitHub/rabbitHole",
+    },
+  },
+
+    -- Use wikilinks [[like this]]
+  link_style = "wiki",
+
+  -- Follow links with <CR>, vault-wide resolution
+  follow_url_func = nil,
+
+  -- Completion triggers [[ for wikilinks
+  completion = {
+    nvim_cmp = false, -- set true if you use nvim-cmp
+    blink_cmp = true,
+    min_chars = 2,
+  },
+  })
+
 end)
 
 -- Snippets ===================================================================
