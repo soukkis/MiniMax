@@ -131,6 +131,13 @@ later(function()
     -- Map of filetype to formatters
     -- Make sure that necessary CLI tool is available
     -- formatters_by_ft = { lua = { 'stylua' } },
+  formatters_by_ft = {
+    markdown = { "prettier" },
+  },
+  format_on_save = {
+    timeout_ms = 3000,
+    lsp_fallback = false,
+  },
   })
 end)
 
