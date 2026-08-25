@@ -170,11 +170,11 @@ later(function() add({
   workspaces = {
     {
       name = "welehola",
-      path = "~/Documents/GitHub/Welehola_Wiki",
+      path = "~/Welehola_Wiki",
     },
     {
       name = "personal",
-      path = "~/Documents/GitHub/rabbitHole",
+      path = "~/rabbitHole",
     },
   },
 
