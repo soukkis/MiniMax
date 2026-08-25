@@ -18,10 +18,18 @@ end
 -- Usage: `yiw` to yank a word and `]p` to put it on the next line.
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
 nmap(']p', '<Cmd>exe "iput "  . v:register<CR>', 'Paste Below')
+
+-- Navigating buffers with Nordic keyboards
+
 nmap('ä', '<Cmd>bn<CR>', 'Move to Next Buffer')
 nmap('Ä', '<Cmd>bp<CR>', 'Move to Previous Buffer')
+
+-- Navigating by paragraph with Nordic keyboards.
+
 nmap('ö', '}', 'Move to Next Paragraph')
 nmap('Ö', '{', 'Move to Previous Paragraph')
+
+-- Ctrl + S keymap for "saving"
 
 nmap('<C-s>', '<Cmd>w<CR>', 'Write buffer')
 
