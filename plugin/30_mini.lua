@@ -669,7 +669,36 @@ end)
 -- - `:h MiniPick.builtin` and `:h MiniExtra.pickers` - available pickers;
 --   Execute one either with Lua function, `:Pick <picker-name>` command, or
 --   one of `<Leader>f` mappings defined in 'plugin/20_keymaps.lua'
-later(function() require('mini.pick').setup() end)
+later(function() require('mini.pick').setup() 
+
+local function reorder_path(path)
+  local dir, filename = path:match('^(.*)/([^/]+)$')
+  if not filename then return path end
+  return filename .. '  ' .. dir
+end
+
+local show_filename_first = function(buf_id, items_to_show, query)
+  local reordered = vim.tbl_map(function(item)
+    if type(item) == 'string' then
+      return reorder_path(item)
+    elseif type(item) == 'table' and item.text then
+      return vim.tbl_extend('force', item, { text = reorder_path(item.text) })
+    end
+    return item
+  end, items_to_show)
+
+  MiniPick.default_show(buf_id, reordered, query, { show_icons = true })
+end
+
+MiniPick.registry.files = function()
+  MiniPick.builtin.files({}, { source = { show = show_filename_first } })
+end
+
+MiniPick.registry.buffers = function()
+  MiniPick.builtin.buffers({}, { source = { show = show_filename_first } })
+end
+
+end)
 
 -- Manage and expand snippets (templates for a frequently used text).
 -- Typical workflow is to type snippet's (configurable) prefix and expand it
